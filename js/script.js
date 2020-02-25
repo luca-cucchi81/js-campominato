@@ -15,10 +15,74 @@ for (var i = 0; i < 20; i++) {          //ciclo per inserire 16 numeri (presi da
 }
 console.log(numeroPc.sort());
 
+var difficolta = 0;
+var selezioneDifficolta;
+var tentativi;
+
+while (difficolta == 0) {
+  if (selezioneDifficolta = parseInt(prompt('Scegli il livello di difficoltà: \nFacile: inserisci 1\nMedio: inserisci 2\nDifficile: inserisci 3'))) {
+    switch (selezioneDifficolta) {
+      case 1:
+        difficolta = 100;
+        tentativi = 84;
+        break;
+      case 2:
+      difficolta = 80;
+      tentativi = 64;
+        break;
+      case 3:
+      difficolta = 50;
+      tentativi = 34;
+        break;
+    }
+
+  }else {
+    alert('Hai annullato il gioco, ricarica la pagina per giocare di nuovo');
+  }
+}
+
+var numeroArray =[]      // array per numeri inseriti dall'utente
+var punti = 0;             // punteggio
+
+while (numeroArray.length < tentativi){               //fintanto che la lunghezza dell'array utente è nel range dei tentativi e non si trova la bomba
+    var numUser = parseInt(prompt('Inserisci un numero da 1 a 100'))
+    if (checkNum(numeroPc, numUser) == true) {                          // primo controllo:se numero pc e numero utente sono uguali = BOOM!!
+      alert('BOOM!!! Hai perso! Ricarica la pagina e ritenta.');
+      punti = numeroArray.length + 1;
+      alert('Hai ottenuto un punteggio di: ' + punti);
+    }
+    else if (numUser > 100 || numUser < 1 || isNaN(numUser)) {      // secondo controllo:  errore inserimento numeri nel prompt
+      alert('Devi inserire un numero da 1 a 100');
+    }
+    else if (checkNum(numeroArray, numUser) == false) {             // terzo controllo: numero inserito non presente tra quelli già inseiriti = pusha nell'array
+      numeroArray.push(numUser);
+    }
+    else {
+      alert('Hai già inserito questo numero!')
+    }
+}
+
+if (checkNum(numeroPc, numUser) == false) {                          // primo if:se numero pc e numero utente sono uguali = BOOM!!
+  alert('COMPLIMENTI!!! HAI VINTO!!! ricarica e prova a vincere di nuovo!!');
+  punti = numeroArray.length + 1;
+  alert('Hai ottenuto un punteggio di: ' + punti);
+}
+
 /* == Funzione generatore numeri casuali computer ==*/
 function generaRandom(min, max) {
-    min = Math.ceil(min);
-    max = Math.floor(max);
     numeroRandom = Math.floor(Math.random() * (max - min + 1)) + min;
     return numeroRandom;
+}
+
+/*Funzione trova numero nell'array*/
+function checkNum(array, num){
+  var i = 0;
+  var result = false;
+  while (i < array.length && result == false) {
+    if (array[i] == num) {
+      result = true;
+    }
+    i++;
+  }
+  return result;
 }
