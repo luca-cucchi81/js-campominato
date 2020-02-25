@@ -40,28 +40,27 @@ while (difficolta == 0) {
   }
 }
 
-var numeroArray =[]      // array per numeri inseriti dall'utente
-var punti = 0;             // punteggio
+var numeroArray =[]      // array per numeri inseriti dall'utente (il cui unico scopo è definire il punteggio finale!)
+var punti = 0;           // punteggio calcolato sulla base della lunghezza dell'array.
 
-while (numeroArray.length < tentativi){               //fintanto che la lunghezza dell'array utente è nel range dei tentativi 
+while (numeroArray.length < tentativi){               //fintanto che la lunghezza dell'array utente è nel range dei tentativi.....
     var numUser = parseInt(prompt('Inserisci un numero da 1 a 100'))
-    if (checkNum(numeroPc, numUser) == true) {                          // primo controllo:se numero pc e numero utente sono uguali = BOOM!!
+    if (checkNum(numeroPc, numUser) == true) {                          // SFIGATO!!: numero pc e numero utente sono uguali --> BOOOOOM!!
       alert('BOOM!!! Hai perso! Ricarica la pagina e ritenta.');
       punti = numeroArray.length + 1;
       alert('Hai ottenuto un punteggio di: ' + punti);
     }
-    else if (numUser > 100 || numUser < 1 || isNaN(numUser)) {      // secondo controllo:  errore inserimento numeri nel prompt
+    else if (numUser > 100 || numUser < 1 || isNaN(numUser)) {      // ATTENZIONE ANCHE A --> errore inserimento numeri nel prompt
       alert('Devi inserire un numero da 1 a 100');
     }
-    else if (checkNum(numeroArray, numUser) == false) {             // terzo controllo: numero inserito non presente tra quelli già inseiriti = pusha nell'array
-      numeroArray.push(numUser);
+    else if (checkNum(numeroArray, numUser) == false) {        //   pusha nell'array e quindi aumenta punteggio
     }
     else {
       alert('Hai già inserito questo numero!')
     }
 }
 
-if (checkNum(numeroPc, numUser) == false) {                          // Numero PC e numero utente non sono mai stati uguali: BRAVO!!!!!
+if (checkNum(numeroPc, numUser) == false) {              // BACIATO DALLA DEA BENDATA?? Numero PC e numero utente non sono mai stati uguali: BRAVO!!!!!
   alert('COMPLIMENTI!!! HAI VINTO!!! Ricarica e prova a vincere di nuovo!!');
   punti = numeroArray.length;
   alert('Hai ottenuto un punteggio di: ' + punti);
