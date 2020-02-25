@@ -20,7 +20,7 @@ var selezioneDifficolta;
 var tentativi;
 
 while (difficolta == 0) {
-  if (selezioneDifficolta = parseInt(prompt('Scegli il livello di difficoltà: \nFacile: inserisci 1\nMedio: inserisci 2\nDifficile: inserisci 3'))) {
+  if (selezioneDifficolta = parseInt(prompt('Scegli il livello di difficoltà: \nFacile: inserisci ' + 1 + '\nMedio: inserisci ' + 2 + '\nDifficile: inserisci ' + 3))) {
     switch (selezioneDifficolta) {
       case 1:
         difficolta = 100;
@@ -35,16 +35,15 @@ while (difficolta == 0) {
       tentativi = 34;
         break;
     }
-
-  }else {
-    alert('Hai annullato il gioco, ricarica la pagina per giocare di nuovo');
+  } else {
+    alert('Non hai inserito la difficoltà corretta: ricarica la pagina!!');
   }
 }
 
 var numeroArray =[]      // array per numeri inseriti dall'utente
 var punti = 0;             // punteggio
 
-while (numeroArray.length < tentativi){               //fintanto che la lunghezza dell'array utente è nel range dei tentativi e non si trova la bomba
+while (numeroArray.length < tentativi){               //fintanto che la lunghezza dell'array utente è nel range dei tentativi 
     var numUser = parseInt(prompt('Inserisci un numero da 1 a 100'))
     if (checkNum(numeroPc, numUser) == true) {                          // primo controllo:se numero pc e numero utente sono uguali = BOOM!!
       alert('BOOM!!! Hai perso! Ricarica la pagina e ritenta.');
@@ -62,9 +61,9 @@ while (numeroArray.length < tentativi){               //fintanto che la lunghezz
     }
 }
 
-if (checkNum(numeroPc, numUser) == false) {                          // primo if:se numero pc e numero utente sono uguali = BOOM!!
-  alert('COMPLIMENTI!!! HAI VINTO!!! ricarica e prova a vincere di nuovo!!');
-  punti = numeroArray.length + 1;
+if (checkNum(numeroPc, numUser) == false) {                          // Numero PC e numero utente non sono mai stati uguali: BRAVO!!!!!
+  alert('COMPLIMENTI!!! HAI VINTO!!! Ricarica e prova a vincere di nuovo!!');
+  punti = numeroArray.length;
   alert('Hai ottenuto un punteggio di: ' + punti);
 }
 
