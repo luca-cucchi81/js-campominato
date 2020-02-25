@@ -19,7 +19,7 @@ var difficolta = 0;
 var selezioneDifficolta;
 var tentativi;
 
-while (difficolta == 0) {
+while (difficolta == 0) {   // a seconda del prompt dell'utente la difficoltà varia e quindi, di conseguenza, anche il numero max di tentativi per la vittoria
   if (selezioneDifficolta = parseInt(prompt('Scegli il livello di difficoltà: \nFacile: inserisci ' + 1 + '\nMedio: inserisci ' + 2 + '\nDifficile: inserisci ' + 3))) {
     switch (selezioneDifficolta) {
       case 1:
@@ -53,7 +53,7 @@ while (numeroArray.length < tentativi){               //fintanto che la lunghezz
     else if (numUser > 100 || numUser < 1 || isNaN(numUser)) {      // ATTENZIONE ANCHE A --> errore inserimento numeri nel prompt
       alert('Devi inserire un numero da 1 a 100');
     }
-    else if (checkNum(numeroArray, numUser) == false) {        //   pusha nell'array e quindi aumenta punteggio
+    else if (checkNum(numeroArray, numUser) == false) {        //   pusha nell'array (il punteggio aumenta!)
     }
     else {
       alert('Hai già inserito questo numero!')
