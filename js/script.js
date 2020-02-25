@@ -60,7 +60,7 @@ while (numeroArray.length < tentativi){               //fintanto che la lunghezz
     }
 }
 
-if (checkNum(numeroPc, numUser) == false) {              // BACIATO DALLA DEA BENDATA?? Numero PC e numero utente non sono mai stati uguali: BRAVO!!!!!
+if (checkNum(numeroPc, numUser) == false) {              // BACIATO DALLA DEA BENDATA?? Numero PC e numero utente non sono mai stati uguali: BRAVO!!!
   alert('COMPLIMENTI!!! HAI VINTO!!! Ricarica e prova a vincere di nuovo!!');
   punti = numeroArray.length;
   alert('Hai ottenuto un punteggio di: ' + punti);
