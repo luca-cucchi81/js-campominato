@@ -47,9 +47,9 @@ console.log(mine);
 var bandiereGiocatore = [];
 console.log(bandiereGiocatore);
 
-while (bandiereGiocatore.length < tentativiMax){
+while (bandiereGiocatore.length < tentativiMax){        //posto che il numero di tentativi giocatore è minore dei tentativi max consentiti dal livello difficoltà....
     var bandiereDaPiazzare = parseInt(prompt('Inserisci un numero da 1 a: ' + dimensioneCampo))
-    if (bandiereDaPiazzare > 0 && bandiereDaPiazzare <= 100 && !isNaN(bandiereDaPiazzare)){
+    while (bandiereDaPiazzare > 0 && bandiereDaPiazzare <= 100 && !isNaN(bandiereDaPiazzare)){  // check su inserimento numeri 
         if (!bandiereGiocatore.includes(bandiereDaPiazzare)) {
             if (!mine.includes(bandiereDaPiazzare)){
             bandiereGiocatore.push(bandiereDaPiazzare);
@@ -67,27 +67,28 @@ while (bandiereGiocatore.length < tentativiMax){
             alert('ATTENZIONE: numero già inserito')
         }
     }
-
 }
 
-function selezioneLivello() {
+function selezioneLivello() {       //funzione "livello difficoltà"
     var difficolta = parseInt(prompt('Inserisci il livello di difficoltà: 1, 2 o 3'));
-    switch (difficolta) {
-        case 1:
-            var dimCampo = 100;
-            break;
-        case 2:
-            var dimCampo = 80;
-            break;
-        case 3:
-            var dimCampo = 50;
-            break;
-        default: dimCampo = 100;
+    while (difficolta > 0 && difficolta <=3 && !isNaN(difficolta)){   //check su selezione livello difficolta
+        switch (difficolta) {
+            case 1:
+                var dimCampo = 100;
+                break;
+            case 2:
+                var dimCampo = 80;
+                break;
+            case 3:
+                var dimCampo = 50;
+                break;
+            default: dimCampo = 100;
+        }
+        return dimCampo;
     }
-    return dimCampo;
 }
 
-function piazzaBombe(dimCampo , totaleMine){
+function piazzaBombe(dimCampo , totaleMine){  //funzione creazione 16 numeri PC = 16 bombe
     var bombe = [];
     while (bombe.length < totMine){
         var mineDaPiazzare = generaRandomMinMax(1, dimCampo);
