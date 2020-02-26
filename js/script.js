@@ -53,7 +53,7 @@ while (bandiereGiocatore.length < tentativiMax){
         if (!bandiereGiocatore.includes(bandiereDaPiazzare)) {
             if (!mine.includes(bandiereDaPiazzare)){
             bandiereGiocatore.push(bandiereDaPiazzare);
-            }else {
+            } else {
                 alert('BOOOOOMMM')
                 alert("Mi spiace hai beccato una mina! Punteggio finale: " + bandiereGiocatore.length);
             }
@@ -61,11 +61,13 @@ while (bandiereGiocatore.length < tentativiMax){
             if (bandiereGiocatore.length == tentativiMax){
                 alert('HAI VINTOOOOOO!!!!!! Ricarica e ritenta la fortuna!!')
                 alert('Punteggio finale: ' + bandiereGiocatore.length);
+            }
+
         } else{
             alert('ATTENZIONE: numero già inserito')
         }
     }
-}
+
 }
 
 function selezioneLivello() {
